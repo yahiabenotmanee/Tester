@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".MainActivity"
+    tools:ignore="MissingDefaultResource">
+
+    <RelativeLayout
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="20dp">
+
+        <LinearLayout
+            android:layout_width="400dp"
+            android:layout_height="50dp"
+            android:background="@drawable/bachground_linear"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/text_power"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="OFF"
+                android:layout_gravity="center"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginStart="15dp"/>
+            <Switch
+                android:id="@+id/smsSwitch"
+                android:layout_width="60dp"
+                android:layout_height="48dp"
+                android:layout_marginLeft="210dp"
+                android:thumb="@drawable/switch_thumb"
+                android:thumbTint="@color/switch_thumb_color"
+                android:track="@drawable/switch_track"
+                android:trackTint="@color/switch_track_color" />
+        </LinearLayout>
+
+        <pl.droidsonroids.gif.GifImageView
+            android:id="@+id/Switch"
+            android:layout_width="400dp"
+            android:layout_height="400dp"
+            android:src="@drawable/sbala" />
+
+
+        <!-- TextView to display the number "20" in the center -->
+        <!--TextView
+            android:id="@+id/numberTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="445dp"
+            android:text="-"
+            android:textColor="@color/Blue_v1"
+            android:textSize="28sp"
+            android:textStyle="bold" /-->
+
+        <RelativeLayout
+            android:layout_width="400dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="430dp"
+            >
+
+            <com.example.tester.CircularSeekBar
+                android:id="@+id/circularSeekBar"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginLeft="1dp" />
+            <TextView
+                android:layout_width="50dp"
+                android:layout_height="20dp"
+                android:layout_marginStart="25dp"
+                android:textColor="@color/black"
+                android:layout_marginTop="110dp"
+                android:text="himidty"
+
+                />
+            <com.example.tester.CircularSeekBar
+                android:id="@+id/circularSeekBar2"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginLeft="120dp" />
+            <TextView
+                android:layout_width="50dp"
+                android:layout_height="20dp"
+                android:layout_marginStart="155dp"
+                android:textColor="@color/black"
+                android:layout_marginTop="110dp"
+                android:text="temp"
+
+                />
+            <com.example.tester.CircularSeekBar
+                android:id="@+id/circularSeekBar3"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginLeft="240dp" />
+            <TextView
+                android:layout_width="50dp"
+                android:layout_height="20dp"
+                android:layout_marginStart="275dp"
+                android:textColor="@color/black"
+                android:layout_marginTop="110dp"
+                android:text="light"
+
+                />
+
+        </RelativeLayout>
+
+        <EditText
+            android:id="@+id/editText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="600dp"
+            android:layout_centerHorizontal="true"
+            android:hint="Enter value"
+            android:visibility="invisible"
+            android:textColor="@color/black"
+            android:textColorHint="@color/Blue_v2"/>
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/editText"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:background="@color/Blue_v1"
+            android:visibility="invisible"
+            android:text="Set Value"/>
+
+        <TextView
+            android:id="@+id/text_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerInParent="true"
+            android:layout_marginBottom="370dp"
+            android:fontFamily="@font/pac"
+            android:text="Status"
+            android:textColor="#6f6f6f"
+            android:textSize="28sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+</RelativeLayout>

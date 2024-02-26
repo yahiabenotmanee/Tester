@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#171d1c</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="switch_thumb_color">#9E9E9E</color> <!-- Change to desired thumb color -->
+    <color name="switch_track_color">#FFFFFF</color> <!-- Change to desired track color -->
+    <color name="p5">#cff09f</color>
+
+    <color name="text_color_header">#323232</color>
+    <color name="text_color_description">#616161</color>
+    <color name="G_white">#efe9f4</color>
+
+    <color name="p7">#128b8b</color>
+    <color name="Blue_v1">#4586D3</color>
+    <color name="Blue_v2">#c2c8cf</color>
+
+</resources>
