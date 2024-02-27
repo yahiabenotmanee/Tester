@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
     private static final int PERMISSION_REQUEST_CODE = 123;
     private static final int SMS_PERMISSION_REQUEST_CODE = 101;
     Button btSENT;
-    TextView messageTextView,txt_power;
+    TextView messageTextView,txt_power,txt_him;
     EditText messageEditText;
     private SMSReceiver smsReceiver;
     private CircularSeekBar circularSeekBar;
@@ -45,13 +45,18 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_test);
 
         circularSeekBar = findViewById(R.id.circularSeekBar);
         btSENT=findViewById(R.id.button);
+
         txt_power=findViewById(R.id.text_power);
+        /*txt_him*/
+        messageTextView=findViewById(R.id.him_text);
+        //messageTextView=findViewById(R.id.editText);
+
         messageEditText=findViewById(R.id.editText);
-        messageTextView=findViewById(R.id.numberTextView);
+
         Switch smsSwitch = findViewById(R.id.smsSwitch);
 
         // Get the current time
@@ -206,6 +211,8 @@ public class MainActivity extends AppCompatActivity {
 
 
             String valueStr = message;//editText.getText().toString();
+            mycircle_custom(valueStr,circularSeekBar);
+/*
             if (!valueStr.isEmpty()) {
                 int value = Integer.parseInt(valueStr);
                 if (value >= 0 && value <= 100) {
@@ -218,13 +225,28 @@ public class MainActivity extends AppCompatActivity {
                 }
             } else {
                 messageEditText.setError("Enter a value");
-            }
-
-
+            }*/
 
             cursor.close();
         } else {
             messageTextView.setText("Aucun message trouvé dans la boîte de réception.");
         }
     }
+   private void mycircle_custom(String Str,CircularSeekBar seekBar){
+
+       if (!Str.isEmpty()) {
+           int value = Integer.parseInt(Str);
+           if (value >= 0 && value <= 100) {
+               float angle = (float) value * 3.6f; // Convert percentage to angle (360 degrees total)
+               seekBar.setAngle(angle);
+               // valueTextView.setText("Value: " + value);
+               messageTextView.setText(value+"%");
+           } else {
+               messageEditText.setError("Enter a value between 0 and 100");
+           }
+       } else {
+           messageEditText.setError("Enter a value");
+       }
+
+   }
 }

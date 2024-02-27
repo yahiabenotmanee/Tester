@@ -79,6 +79,15 @@
                 android:textColor="@color/black"
                 android:layout_marginTop="110dp"
                 android:text="himidty"
+                />
+            <TextView
+                android:id="@+id/him_text"
+                android:layout_width="30dp"
+                android:layout_height="20dp"
+                android:layout_marginStart="37dp"
+                android:textColor="@color/black"
+                android:layout_marginTop="40dp"
+                android:text="00%"
 
                 />
             <com.example.tester.CircularSeekBar
