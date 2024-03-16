@@ -72,13 +72,14 @@
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_marginLeft="1dp" />
+
             <TextView
                 android:layout_width="50dp"
                 android:layout_height="20dp"
                 android:layout_marginStart="25dp"
                 android:textColor="@color/black"
                 android:layout_marginTop="110dp"
-                android:text="himidty"
+                android:text="Himidty"
                 />
             <TextView
                 android:id="@+id/him_text"
@@ -88,37 +89,53 @@
                 android:textColor="@color/black"
                 android:layout_marginTop="40dp"
                 android:text="00%"
-
                 />
             <com.example.tester.CircularSeekBar
                 android:id="@+id/circularSeekBar2"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_marginLeft="120dp" />
+
             <TextView
-                android:layout_width="50dp"
+                android:layout_width="85dp"
                 android:layout_height="20dp"
-                android:layout_marginStart="155dp"
+                android:layout_marginStart="130dp"
                 android:textColor="@color/black"
                 android:layout_marginTop="110dp"
-                android:text="temp"
-
+                android:text="Temperature"
+                />
+            <TextView
+                android:id="@+id/soil_text"
+                android:layout_width="30dp"
+                android:layout_height="20dp"
+                android:layout_marginStart="157dp"
+                android:textColor="@color/black"
+                android:layout_marginTop="40dp"
+                android:text="00%"
                 />
             <com.example.tester.CircularSeekBar
                 android:id="@+id/circularSeekBar3"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_marginLeft="240dp" />
+
             <TextView
                 android:layout_width="50dp"
                 android:layout_height="20dp"
                 android:layout_marginStart="275dp"
                 android:textColor="@color/black"
                 android:layout_marginTop="110dp"
-                android:text="light"
-
+                android:text="Light"
                 />
-
+            <TextView
+                android:id="@+id/temp_text"
+                android:layout_width="30dp"
+                android:layout_height="20dp"
+                android:layout_marginStart="277dp"
+                android:textColor="@color/black"
+                android:layout_marginTop="40dp"
+                android:text="00%"
+                />
         </RelativeLayout>
 
         <EditText

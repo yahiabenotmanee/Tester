@@ -33,14 +33,14 @@ import java.util.Calendar;
 import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
+
     private static final int PERMISSION_REQUEST_CODE = 123;
     private static final int SMS_PERMISSION_REQUEST_CODE = 101;
     Button btSENT;
-    TextView messageTextView,txt_power,txt_him;
-    EditText messageEditText;
+    TextView txt_power,txt_him;
+    EditText EditTextmessage;
     private SMSReceiver smsReceiver;
-    private CircularSeekBar circularSeekBar;
-
+    private CircularSeekBar circularSeekBar,circularSeekBarSOIL,circularSeekBarTEMP;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,11 +51,9 @@ public class MainActivity extends AppCompatActivity {
         btSENT=findViewById(R.id.button);
 
         txt_power=findViewById(R.id.text_power);
-        /*txt_him*/
-        messageTextView=findViewById(R.id.him_text);
-        //messageTextView=findViewById(R.id.editText);
+        txt_him=findViewById(R.id.him_text);
 
-        messageEditText=findViewById(R.id.editText);
+        EditTextmessage=findViewById(R.id.editText);
 
         Switch smsSwitch = findViewById(R.id.smsSwitch);
 
@@ -77,9 +75,9 @@ public class MainActivity extends AppCompatActivity {
 
                 }else {
                     if (isChecked) {
-                        sendSMS("R", number);
+                        sendSMS("@", number);
                     } else {
-                        sendSMS("K",number);
+                        sendSMS("#",number);
                     }
                 }
             }
@@ -116,16 +114,7 @@ public class MainActivity extends AppCompatActivity {
             // L'autorisation est déjà accordée, envoyez le SMS
             SmsManager smsManager = SmsManager.getDefault();
             smsManager.sendTextMessage(number, null, msg, null, null);
-            if (msg=="R"){
-                txt_power.setText("ON");
 
-                //txtStatus.setTextColor(getColor(R.color.p7));
-            }
-            if (msg=="K"){
-                txt_power.setText("OFF");
-                //txtStatus.setVisibility(View.VISIBLE);
-                //txtStatus.setTextColor(getColor(R.color.text_color_description));
-            }
             Toast.makeText(getApplicationContext(), "Done", Toast.LENGTH_LONG).show();
         }
     }// end sendsms
@@ -189,7 +178,6 @@ public class MainActivity extends AppCompatActivity {
         public SMSContentObserver(Handler handler) {
             super(handler);
         }
-
         @Override
         public void onChange(boolean selfChange) {
             super.onChange(selfChange);
@@ -207,46 +195,41 @@ public class MainActivity extends AppCompatActivity {
 
         if (cursor != null && cursor.moveToFirst()) {
             String message = cursor.getString(cursor.getColumnIndexOrThrow("body"));
-            messageTextView.setText(message);
-
-
             String valueStr = message;//editText.getText().toString();
-            mycircle_custom(valueStr,circularSeekBar);
-/*
-            if (!valueStr.isEmpty()) {
-                int value = Integer.parseInt(valueStr);
-                if (value >= 0 && value <= 100) {
-                    float angle = (float) value * 3.6f; // Convert percentage to angle (360 degrees total)
-                    circularSeekBar.setAngle(angle);
-                   // valueTextView.setText("Value: " + value);
-                    messageTextView.setText(value+"%");
-                } else {
-                    messageEditText.setError("Enter a value between 0 and 100");
-                }
-            } else {
-                messageEditText.setError("Enter a value");
-            }*/
+
+
+            System.out.println( isInteger(valueStr));
+            if (isInteger(valueStr)==false){
+               // Toast.makeText(this, "false", Toast.LENGTH_SHORT).show();
+            }
+
+           // mycircle_custom(valueStr,circularSeekBar);
 
             cursor.close();
         } else {
-            messageTextView.setText("Aucun message trouvé dans la boîte de réception.");
+            //Aucun message trouvé dans la boîte de réception.
         }
-    }
-   private void mycircle_custom(String Str,CircularSeekBar seekBar){
+    } // end display method
 
+ // circle creat
+   private void mycircle_custom(String Str,CircularSeekBar seekBar){
        if (!Str.isEmpty()) {
            int value = Integer.parseInt(Str);
            if (value >= 0 && value <= 100) {
                float angle = (float) value * 3.6f; // Convert percentage to angle (360 degrees total)
                seekBar.setAngle(angle);
-               // valueTextView.setText("Value: " + value);
-               messageTextView.setText(value+"%");
+               txt_him.setText(value+"%");
            } else {
-               messageEditText.setError("Enter a value between 0 and 100");
+               EditTextmessage.setError("Enter a value between 0 and 100");
            }
        } else {
-           messageEditText.setError("Enter a value");
+           EditTextmessage.setError("Enter a value");
        }
-
    }
+
+// int test
+    public static boolean isInteger(Object value) {
+        return value instanceof Integer;
+    }
+
 }
