@@ -204,7 +204,7 @@ public class MainActivity extends AppCompatActivity {
             String valueStr = message;//editText.getText().toString();
 
 
-            System.out.println( isInteger(valueStr));
+           // System.out.println( isInteger(valueStr));
             if (isInteger(valueStr)==false){
                // Toast.makeText(this, "false", Toast.LENGTH_SHORT).show();
             }
@@ -213,6 +213,7 @@ public class MainActivity extends AppCompatActivity {
 
             cursor.close();
         } else {
+
             //Aucun message trouvé dans la boîte de réception.
         }
     } // end display method
