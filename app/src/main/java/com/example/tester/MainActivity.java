@@ -118,6 +118,10 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "Done", Toast.LENGTH_LONG).show();
         }
     }// end sendsms
+    
+    
+    
+    
     // PERMISSION
     private boolean checkSmsPermission() {
         return ContextCompat.checkSelfPermission(this, Manifest.permission.READ_SMS) == PackageManager.PERMISSION_GRANTED;
@@ -189,6 +193,8 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+
+
     private void displayLastReceivedMessage() throws Exception {
         Uri uri = Uri.parse("content://sms/inbox");
         Cursor cursor = getContentResolver().query(uri, null, null, null, "date DESC");
@@ -210,6 +216,11 @@ public class MainActivity extends AppCompatActivity {
             //Aucun message trouvé dans la boîte de réception.
         }
     } // end display method
+
+
+
+
+
 
  // circle creat
    private void mycircle_custom(String Str,CircularSeekBar seekBar){
